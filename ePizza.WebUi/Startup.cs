@@ -1,3 +1,7 @@
+using ePizza.Services.Configuration;
+using ePizza.Services.Implementation;
+using ePizza.Services.Interfaces;
+using ePizza.WebUi.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,6 +26,9 @@ namespace ePizza.WebUi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ConfigureDependencies.AddServices(services);
+            ConfigureRepository.AddServices(services,Configuration);
+            
             services.AddControllersWithViews();
         }
 

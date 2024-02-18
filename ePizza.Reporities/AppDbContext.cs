@@ -8,6 +8,14 @@ namespace ePizza.Repositories
 {
     public class AppDbContext:IdentityDbContext<User,Role,int>
     {
+        public AppDbContext()
+        {
+             
+        }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) 
+        {
+
+        }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> cartItems { get; set; }
